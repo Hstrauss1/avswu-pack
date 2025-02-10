@@ -1,0 +1,35 @@
+{
+  "name": "veins_to_polkadot_server",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "main": "node veins_server.js",
+    "start": "npm run main",
+    "server": "node veins_server.js",
+    "test": "jest --watchAll"
+  },
+  "author": "Gabriel Solomon",
+  "license": "ISC",
+  "dependencies": {
+    "@chainsafe/libp2p-noise": "^15.0.0",
+    "@chainsafe/libp2p-yamux": "^6.0.1",
+    "@grpc/grpc-js": "^1.9.9",
+    "@helia/unixfs": "^3.0.0",
+    "@libp2p/bootstrap": "^10.0.12",
+    "@libp2p/identify": "^1.0.14",
+    "@libp2p/tcp": "^9.0.12",
+    "@polkadot/api": "^10.10.1",
+    "@polkadot/api-contract": "^10.10.1",
+    "blockstore-core": "^4.1.0",
+    "datastore-core": "^9.1.1",
+    "helia": "^4.0.1",
+    "libp2p": "^1.2.0",
+    "pino": "^8.16.2",
+    "pino-pretty": "^10.2.3",
+    "veins_to_polkadot_server": "file:"
+  },
+  "devDependencies": {
+    "@helia/strings": "^3.0.0"
+  }
+}

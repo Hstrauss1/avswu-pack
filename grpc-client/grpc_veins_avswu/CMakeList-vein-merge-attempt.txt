@@ -1,0 +1,152 @@
+cmake_minimum_required(VERSION 3.8)
+
+project(VeinsEvent C CXX)
+
+include(../cmake/common.cmake)
+
+# add -fPIC for all compiles
+SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fPIC")
+
+# Proto file
+get_filename_component(veins_avswu_proto "./veins_avswu.proto" ABSOLUTE)
+get_filename_component(veins_avswu_proto_path "${veins_avswu_proto}" PATH)
+
+# Generated sources
+set(veins_avswu_proto_srcs "${CMAKE_CURRENT_BINARY_DIR}/veins_avswu.pb.cc")
+set(veins_avswu_proto_hdrs "${CMAKE_CURRENT_BINARY_DIR}/veins_avswu.pb.h")
+set(veins_avswu_grpc_srcs "${CMAKE_CURRENT_BINARY_DIR}/veins_avswu.grpc.pb.cc")
+set(veins_avswu_grpc_hdrs "${CMAKE_CURRENT_BINARY_DIR}/veins_avswu.grpc.pb.h")
+add_custom_command(
+      OUTPUT "${veins_avswu_proto_srcs}" "${veins_avswu_proto_hdrs}" "${veins_avswu_grpc_srcs}" "${veins_avswu_grpc_hdrs}"
+      COMMAND ${_PROTOBUF_PROTOC}
+      ARGS --grpc_out "${CMAKE_CURRENT_BINARY_DIR}"
+        --cpp_out "${CMAKE_CURRENT_BINARY_DIR}"
+        -I "${veins_avswu_proto_path}"
+        --plugin=protoc-gen-grpc="${_GRPC_CPP_PLUGIN_EXECUTABLE}"
+        "${veins_avswu_proto}"
+      DEPENDS "${veins_avswu_proto}")
+
+# Include generated *.pb.h files
+include_directories("${CMAKE_CURRENT_BINARY_DIR}")
+
+# veins_avswu_grpc_proto
+add_library(veins_avswu_grpc_proto
+  ${veins_avswu_grpc_srcs}
+  ${veins_avswu_grpc_hdrs}
+  ${veins_avswu_proto_srcs}
+  ${veins_avswu_proto_hdrs})
+target_link_libraries(veins_avswu_grpc_proto
+  ${_REFLECTION}
+  ${_GRPC_GRPCPP}
+  ${_PROTOBUF_LIBPROTOBUF})
+
+# Targets
+foreach(_exe
+  veins_client_push veins_client_get)
+  add_executable(${_exe} "${_exe}.cc")
+  target_link_libraries(${_exe}
+    veins_avswu_grpc_proto
+    absl::flags
+    absl::flags_parse
+    ${_REFLECTION}
+    ${_GRPC_GRPCPP}
+    ${_PROTOBUF_LIBPROTOBUF})
+endforeach()
+
+#---------------------------------------------------------------
+# avswu-grpc build
+#---------------------------------------------------------------
+
+#
+# compile the message file with opp_msgc
+#
+
+# set the base directory where veins commands are built from
+set(avswu_veins_src "/home/veins/avswu-veins/src")
+
+#
+# create /home/veins/avswu-veins/out/clang-release/src/veins_inet/AvswuMessage_m.h.d
+# based on this command
+# opp_msgc --msg6 -s _m.cc -MD -MP -MF ../out/clang-release/src/veins_inet/AvswuMessage_m.h.d -I/home/veins/src/inet/src -I/home/veins/src/veins/src -I. veins_inet/AvswuMessage.msg
+#
+add_custom_command(
+      OUTPUT "${avswu_veins_src}/../out/clang-release/src/veins_inet/AvswuMessage_m.h.d"
+      COMMAND opp_msgc
+      ARGS --msg6 -s _m.cc -MD -MP
+      -MF ${avswu_veins_src}/../out/clang-release/src/veins_inet/AvswuMessage_m.h.d
+      -I/home/veins/src/inet/src -I/home/veins/src/veins/src -I${avswu_veins_src}
+      ${avswu_veins_src}/veins_inet/AvswuMessage.msg
+      DEPENDS ${avswu_veins_src}/veins_inet/AvswuMessage.msg)
+
+#
+# compile all .cc files in directory in for loop
+#
+# based on
+# clang++ -c -O3 -DNDEBUG=1 -MMD -MP -MF ../out/clang-release/src/veins_inet/AvswuApplication.o.d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-omit-frame-pointer -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DPREFER_QTENV -DWITH_QTENV -DWITH_PARSIM -DWITH_NETBUILDER -DWITH_OSG -DOMNETPPLIBS_IMPORT -DINET_IMPORT -DVEINS_IMPORT -I/home/veins/src/inet/src -I/home/veins/src/veins/src -I. -I/home/veins/src/omnetpp-5.7/include -o ../out/clang-release/src/veins_inet/AvswuApplication.o veins_inet/AvswuApplication.cc
+#
+
+
+#
+# compile and link avswu-grpc
+#
+# based on
+# clang++   -Wl,-rpath,/home/veins/src/omnetpp-5.7/lib -Wl,-rpath,/lib -Wl,-rpath,.  -Wl,--export-dynamic -L/home/veins/src/omnetpp-5.7/lib -o ../out/clang-release/src/avswu ../out/clang-release/src/veins_inet/AvswuApplication.o ../out/clang-release/src/veins_inet/VeinsInetApplicationBase.o ../out/clang-release/src/veins_inet/VeinsInetManager.o ../out/clang-release/src/veins_inet/VeinsInetManagerBase.o ../out/clang-release/src/veins_inet/VeinsInetManagerForker.o ../out/clang-release/src/veins_inet/VeinsInetMobility.o ../out/clang-release/src/veins_inet/AvswuMessage_m.o  -Wl,--no-as-needed -Wl,--whole-archive -L/home/veins/src/inet/src -L/home/veins/src/veins/src  -lINET -lveins -Wl,-rpath,/home/veins/src/inet/src -Wl,-rpath,/home/veins/src/veins/src -Wl,--no-whole-archive -loppmain -Wl,-u,_cmdenv_lib -Wl,--no-as-needed -loppcmdenv -loppenvir -Wl,-u,_qtenv_lib -Wl,--no-as-needed -Wl,-rpath=/usr/lib/x86_64-linux-gnu -loppqtenv -loppenvir -lopplayout  -loppsim -ldl -lstdc++ 
+# hard link
+# ln -f ../out/clang-release/src/avswu avswu
+#
+
+# set the target
+set(_target "avswu-grpc")
+
+# cpp compiler is clang
+set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
+
+# make the executable
+add_executable(${_target} "${avswu_veins_src}/veins_inet/AvswuApplication")
+
+# output avswu-grpc next to avswu
+#set_target_properties(${_target} PROPERTIES RUNTIME_OUTPUT_DIRECTORY "/home/veins/avswu-veins/src")
+
+#message("******** DEBUG avswu_veins_src=${avswu_veins_src}")
+
+# all basenames of cpp files
+set(avswu_basename_files VeinsInetApplicationBase VeinsInetManager VeinsInetManagerBase VeinsInetManagerForker VeinsInetMobility AvswuMessage_m)
+
+# add the cpp files
+set(avswu_cpp_files "")
+foreach(_f ${avswu_basename_files})
+  set(avswu_cpp_files ${avswu_cpp_files} "${avswu_veins_src}/veins_inet/${_f}.cc")
+endforeach()
+
+# add compile options for target
+#set_target_properties(${_target} PROPERTIES COMPILE_FLAGS "\
+target_compile_options(${_target} PRIVATE
+      -O3 -DNDEBUG=1 -MMD -MP -Wno-deprecated-register -Wno-unused-function -fno-omit-frame-pointer
+      -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DPREFER_QTENV -DWITH_QTENV -DWITH_PARSIM -DWITH_NETBUILDER
+      -DWITH_OSG -DOMNETPPLIBS_IMPORT -DINET_IMPORT -DVEINS_IMPORT
+      -Wl,-rpath,/home/veins/src/omnetpp-5.7/lib
+      -Wl,-rpath,/lib -Wl,-rpath,. -Wl,--export-dynamic -L/home/veins/src/omnetpp-5.7/lib -Wl,--no-as-needed -Wl,--whole-archive
+      -L/home/veins/src/inet/src -L/home/veins/src/veins/src  -lINET -lveins -Wl,-rpath,/home/veins/src/inet/src -Wl,-rpath,/home/veins/src/veins/src
+      -Wl,--no-whole-archive -loppmain -Wl,-u,_cmdenv_lib
+      -Wl,--no-as-needed -loppcmdenv -loppenvir -Wl,-u,_qtenv_lib -Wl,--no-as-needed -Wl,-rpath=/usr/lib/x86_64-linux-gnu -loppqtenv -loppenvir -lopplayout
+      -loppsim -ldl -lstdc++)
+
+# include libraries
+target_include_directories(${_target} PUBLIC
+      .
+      /home/veins/src/inet/src
+      /home/veins/src/veins/src
+      /home/veins/src/omnetpp-5.7/include
+      /home/veins/avswu-veins
+      /home/veins/avswu-veins/src
+      /home/veins/avswu-veins)
+
+# add the libraries
+target_link_libraries(${_target} PRIVATE
+      veins_avswu_grpc_proto
+      absl::flags
+      absl::flags_parse
+      ${_REFLECTION}
+      ${_GRPC_GRPCPP}
+      ${_PROTOBUF_LIBPROTOBUF})
+

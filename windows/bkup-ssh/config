@@ -1,0 +1,25 @@
+Host ubuntu-laptop-gsolomon
+  HostName 192.168.50.112
+  Port 22
+  User gsolomon
+
+Host virtualbox-veins
+  HostName 127.0.0.1
+  Port 3022
+  User veins
+
+  Host ubuntu-laptop-root
+  HostName 192.168.50.112
+  Port 22
+  User root
+
+Host avswu-root
+  HostName 127.0.0.1
+  Port 2222
+  User root
+
+Host avswu-gsolomon
+  HostName 127.0.0.1
+  Port 2222
+  User gsolomon
+

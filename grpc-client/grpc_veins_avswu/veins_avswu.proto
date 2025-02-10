@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.avswu";
+option java_outer_classname = "AvswuProto";
+option objc_class_prefix = "AVSWU";
+
+package avswu;
+
+// service definition
+service Avswu {
+
+  // veins av event -> blockchain
+  rpc AvswuPushEvent (AvswuPushEventRequest) returns (AvswuPushEventReply) {}
+
+  // blockchain -> veins av event
+  rpc AvswuGetEventList (AvswuGetEventListRequest) returns (AvswuGetEventListReply) {}
+}
+
+// avswuPushEvent { id, action, signature, t, t_sim_time_unit } -> result
+// matches definition in contract's lib.rs struct
+message AvswuPushEventRequest {
+  uint32 id = 1;
+  string action = 2;
+  string signature = 3;
+  uint64 t = 4;
+  sint32 t_sim_time_unit = 5;
+}
+
+message AvswuPushEventReply {
+  string result = 1;
+}
+
+// avswuGetEventList { id } -> event list
+message AvswuGetEventListRequest {
+  uint32 id = 1;
+}
+
+message AvswuGetEventListReply {
+  string result = 1;
+}

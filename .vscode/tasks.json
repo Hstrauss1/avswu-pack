@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "options": {
+    "cwd": "${fileDirname}"
+  },
+  "tasks": [
+    {
+      "label": "make-build-for-debug",
+      "command": "make",
+      //   "args": ["VERBOSE=1"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "veins-client-make-build-for-debug",
+      "command": "make",
+      //   "args": ["VERBOSE=1"],
+      "options": {
+        "cwd": "${workspaceFolder}/veins-client"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}

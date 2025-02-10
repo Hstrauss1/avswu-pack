@@ -1,0 +1,29 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true
+  },
+  "extends": "google",
+  "overrides": [
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    // prefer single quotes
+    "quotes": [2, "single", "avoid-escape"],
+    // disable object-shorthand (disable requiring object shorthand, eventhough it's nice)
+    "object-shorthand": "off",
+    // disable comma-dangle, eslint
+    "comma-dangle": ["error", "never"],
+    // maximum line width
+    "max-len": ["error", { "code": 100 }],
+    // do not require use of jsdoc, document generation, from google's standard
+    "require-jsdoc": "off",
+    // prefer destruction turn off, even though it is nice to use, dont force it
+    "prefer-destructuring": "off",
+    // allow normal string concatentation
+    "prefer-template": "off"
+  }
+}

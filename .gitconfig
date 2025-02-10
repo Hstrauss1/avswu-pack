@@ -1,0 +1,9 @@
+[user]
+	name = Gabriel Solomon
+	email = gjeromesolomonn@gmail.com
+[push]
+	default = simple
+[core]
+	editor = '/usr/bin/vi'
+[safe]
+	directory = /avswu

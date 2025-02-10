@@ -1,0 +1,70 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "clang++ build and debug active file",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "preLaunchTask": "make-build-for-debug"
+        },
+        {
+            "name": "clang++ build veins-client cpp file",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/veins-client/bin/${fileBasenameNoExtension}",
+            "preLaunchTask": "veins-client-make-build-for-debug"
+        },
+        {
+            "name": "python - current file",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "node - run current file",
+            "program": "${file}",
+            "request": "launch",
+            "skipFiles": ["<node_internals>/**"],
+            "type": "node",
+            /* speed-up debugging */
+            "outFiles": [],
+            "resolveSourceMapLocations": null,
+            /* output pino logger messages */
+            "outputCapture": "std"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "debug front-end (from windows)",
+            "url": "http://localhost:8000",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "debug avswu server (from remote)",
+            "type": "node",
+            "request": "launch",
+            "skipFiles": ["<node_internals>/**"],
+            "program": "avswu-server/src/index.js",
+            /* speed-up debugging */
+            "outFiles": [],
+            "resolveSourceMapLocations": null
+        },
+        {
+            "name": "avswu server jest tests",
+            "type": "node",
+            "request": "launch",
+            "runtimeArgs": [
+                "--inspect-brk",
+                "${workspaceRoot}/avswu-server/node_modules/jest/bin/jest.js",
+                "--runInBand"
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        }
+    ]
+}

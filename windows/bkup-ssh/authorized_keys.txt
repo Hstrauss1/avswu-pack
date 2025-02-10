@@ -1,0 +1,4 @@
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAey5Ga+6lrFig39Rcs/T1mkEfee47bOdo8l6oKmO/iD gsolomon@avswu1
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJbtTf5smk04rroU7AOUJmNtoQy3acU5eePqEqTvxgae veins@instant-veins
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIo/9RONhJawDg+rv4wZ7n5S/Es+YEVWyu4Pe1IEFcra root@polkadot-test1
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGF8+v6nOsADnRg6vxYq01dA/MnNpyKJ9gABOD5d2gba root@avswu1

@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/avswu/musig",
+  "command": "/usr/bin/cc  -I/usr/local/include/pbc -I/usr/local/lib  -o CMakeFiles/musig.dir/musig.c.o -c /avswu/musig/musig.c",
+  "file": "/avswu/musig/musig.c"
+},
+{
+  "directory": "/avswu/musig",
+  "command": "/usr/bin/cc  -I/usr/local/include/pbc -I/usr/local/lib  -o CMakeFiles/pbc-wrapper.dir/pbc-wrapper.c.o -c /avswu/musig/pbc-wrapper.c",
+  "file": "/avswu/musig/pbc-wrapper.c"
+},
+{
+  "directory": "/avswu/musig",
+  "command": "/usr/bin/cc  -I/usr/local/include/pbc -I/usr/local/lib  -o CMakeFiles/sig.dir/sig.c.o -c /avswu/musig/sig.c",
+  "file": "/avswu/musig/sig.c"
+},
+{
+  "directory": "/avswu/musig",
+  "command": "/usr/bin/cc  -I/usr/local/include/pbc -I/usr/local/lib  -o CMakeFiles/sig.dir/musig.c.o -c /avswu/musig/musig.c",
+  "file": "/avswu/musig/musig.c"
+},
+{
+  "directory": "/avswu/musig",
+  "command": "/usr/bin/cc  -I/usr/local/include/pbc -I/usr/local/lib  -o CMakeFiles/sig-orig.dir/sig-orig.c.o -c /avswu/musig/sig-orig.c",
+  "file": "/avswu/musig/sig-orig.c"
+}
+]

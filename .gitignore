@@ -1,0 +1,110 @@
+# ignore js node modules
+node_modules/*
+**/node_modules
+
+# ignore eslint files
+.eslintcache
+**/.eslintcache
+
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ignore polkadot yarn cache files, and other tmp files
+/.yarn
+**/.yarn
+**/.fingerprint
+
+# ignore all the rust build target files
+**/target/
+
+# ignore all the erasure code C++ binary files
+erasure-code/src/bin/
+
+# ignore the avswu server download directory
+# ignore download directory
+/avswu-server/download/
+
+# ignore nodejs plugin build directories
+erasure-code/src/add-on/build/
+cpabe/src/add-on/build/
+
+# ignore docker log files
+docker/docker*.log
+
+# veins
+veins/out/clang-release/src/avswu
+
+# grpc
+CMakeFiles
+cocoapods
+cmake_externalproject
+grpc/*/BUILD
+*.o
+*.pb.cc
+*.pb.h
+greeter_client
+greeter_server
+greeter_async_client
+greeter_async_client2
+greeter_async_server
+*.a
+
+# musig
+CMakeFiles
+CMakeCache.txt
+musig/sig-orig
+musig/sig
+musig/.cache
+
+# veins-client cmake auto-generated files
+veins-client/CTestTestfile.cmake
+veins-client/Makefile
+veins-client/compile_commands.json
+veins-client/cmake_install.cmake
+
+# libipfs cache
+veins-client/.libipfs-repo
+
+# sim plots/graphs
+# sim-plots
+*/__pycache__

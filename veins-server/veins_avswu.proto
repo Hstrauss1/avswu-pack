@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.avswu";
+option java_outer_classname = "AvswuProto";
+option objc_class_prefix = "AVSWU";
+
+package avswu;
+
+//
+// service definition
+//
+service Avswu {
+  //
+  // polkadot blockchain RPCs, definitions match smart contract implementations contract in lib.rs
+  //
+  // write commitment
+  rpc AvswuBlockchainWriteCommitment (AvswuBlockchainWriteCommitmentRequest) returns (AvswuBlockchainWriteCommitmentReply) {}
+  // read commitment vector
+  rpc AvswuBlockchainReadCommitmentVector (AvswuBlockchainReadCommitmentVectorRequest) returns (AvswuBlockchainReadCommitmentVectorReply) {}
+
+  //
+  // polkadot blockchain RPCs, definitions match smart contract implementations contract in lib.rs
+  //
+  // write notification
+  rpc AvswuBlockchainWriteNotification (AvswuBlockchainWriteNotificationRequest) returns (AvswuBlockchainWriteNotificationReply) {}
+  // read notification 
+  rpc AvswuBlockchainReadNotification (AvswuBlockchainReadNotificationRequest) returns (AvswuBlockchainReadNotificationReply) {}
+  // read last notification
+  rpc AvswuBlockchainReadLastNotification (AvswuBlockchainReadLastNotificationRequest) returns (AvswuBlockchainReadLastNotificationReply) {}
+  // read notification list given a manufacturer list supported by the rsu
+  rpc AvswuBlockchainReadLastNotificationList (AvswuBlockchainReadLastNotificationListRequest) returns (AvswuBlockchainReadLastNotificationListReply) {}
+
+}
+
+//
+// polkadot blockchain read/write commitment RPCs
+//
+message AvswuBlockchainWriteCommitmentRequest {
+  uint64 shard_id = 1;
+  uint32 signer_id = 2;
+  string capital_r = 3;
+  string w = 4;
+  string capital_w = 5;
+}
+
+message AvswuBlockchainWriteCommitmentReply {
+  string result = 1;
+}
+
+message AvswuBlockchainReadCommitmentVectorRequest {
+  string key_vec_json = 1;
+}
+
+message AvswuBlockchainReadCommitmentVectorReply {
+  string result = 1;
+}
+
+//
+// polkadot blockchain read/write notification RPCs
+//
+message AvswuBlockchainWriteNotificationRequest {
+  uint64 manufacturer_id = 1;
+  uint64 software_id = 2;
+  uint64 version_id = 3;
+  uint64 create_time = 4;
+  string notification_json = 5;
+}
+
+message AvswuBlockchainWriteNotificationReply {
+  string result = 1;
+}
+
+message AvswuBlockchainReadNotificationRequest {
+  uint64 manufacturer_id = 1;
+  uint64 software_id = 2;
+  uint64 version_id = 3;
+}
+
+message AvswuBlockchainReadNotificationReply {
+  string result = 1;
+}
+
+message AvswuBlockchainReadLastNotificationListRequest {
+  string manufacturer_list_json = 1;
+  uint64 start_time = 2;
+}
+
+message AvswuBlockchainReadLastNotificationListReply {
+  string result = 1;
+}
+
+message AvswuBlockchainReadLastNotificationRequest {
+  uint64 manufacturer_id = 1;
+  uint64 software_id = 2;
+  uint64 start_time = 3;
+}
+
+message AvswuBlockchainReadLastNotificationReply {
+  string result = 1;
+}

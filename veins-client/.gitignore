@@ -1,0 +1,18 @@
+# veins-client .gitignore
+
+# cMake files
+CMakeFiles
+CMakeCache.txt
+Coding
+*_include.cmake
+.cache
+
+# data file sub directoreies
+Testing
+bin
+input
+output
+
+# build lib temp files, like stXJ4HYY
+lib/s*
+

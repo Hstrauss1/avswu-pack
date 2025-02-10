@@ -1,0 +1,26 @@
+{
+  "files.eol": "\n",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": ["javascript"],
+  "javascript.suggest.autoImports": false,
+  "cmake.configureOnOpen": false,
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "clangd.arguments": [
+    "--compile-commands-dir=/avswu/veins-client",
+    "--completion-style=detailed",
+    "--header-insertion=never"
+  ],
+  // prevent unnecessary rust re-builds upon every save
+  "rust-analyzer.checkOnSave": false,
+  // color for repo
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#ef9968",
+    "titleBar.activeForeground": "#000000"
+  }
+}
