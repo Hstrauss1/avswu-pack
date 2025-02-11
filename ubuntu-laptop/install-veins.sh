@@ -33,11 +33,13 @@ sudo apt-get install -y build-essential gcc g++ bison flex perl \
 echo "------------------------------------------------------------------"
 echo "STATUS: Installing SUMO"
 echo "------------------------------------------------------------------"
-SUMO_VERSION="sumo-1.11.0"
-curl -L "https://sourceforge.net/projects/sumo/files/sumo/version%201.11.0/${SUMO_VERSION}.orig.tar.gz" -o "${SUMO_VERSION}.tar.gz"
-tar -xzf "${SUMO_VERSION}.tar.gz"
-rm "${SUMO_VERSION}.tar.gz"
-mv "${SUMO_VERSION}" "$VEINS_INSTALL_DIR"
+curl -L "https://sourceforge.net/projects/sumo/files/sumo/version%201.11.0/sumo_1.11.0.orig.tar.gz/download" -o "sumo-1.11.0.tar.gz"
+
+# Wait 5 seconds to ensure the download is fully completed
+sleep 7
+tar -xzf "sumo-1.11.0.tar.gz"
+rm "sumo-1.11.0.tar.gz"
+mv "sumo-1.11.0" "$VEINS_INSTALL_DIR"
 
 # Install OMNeT++
 echo "------------------------------------------------------------------"

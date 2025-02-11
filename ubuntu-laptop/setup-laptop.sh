@@ -52,8 +52,8 @@ gzip -d ${OPEN_SSL_VERSION}".tar.gz"
 tar -xvf ${OPEN_SSL_VERSION}".tar"
 rm -f ${OPEN_SSL_VERSION}".tar"
 sudo mv ${OPEN_SSL_VERSION} /usr/local
-sudo mkdir -p /usr/local/${OPEN_SSL_VERSION}
-pushd /usr/local/${OPEN_SSL_VERSION}
+sudo mkdir -p $HOME/usr/local/${OPEN_SSL_VERSION}
+pushd $HOME/usr/local/${OPEN_SSL_VERSION}
 ./config
 make
 sudo make install

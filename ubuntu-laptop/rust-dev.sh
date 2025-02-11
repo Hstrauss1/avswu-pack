@@ -31,7 +31,8 @@
 # specific for this image
 #
 cd /root
-
+sudo apt update
+sudo apt install -y clang llvm
 # rust
 sudo curl https://sh.rustup.rs -sSf | sh -s -- -y
 
