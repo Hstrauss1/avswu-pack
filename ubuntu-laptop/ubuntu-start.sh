@@ -80,19 +80,6 @@ chmod a-wx,u+rw,go+r ~/startup/_.bash_profile
 cp ~/startup/_.bash_profile /etc/skel/.bash_profile
 cp ~/startup/_.bash_profile ~/.bash_profile
 
-# Copy ~/bin directory
-echo "------------------------------------------------------------------"
-echo "STATUS: Copying ~/bin directory..."
-echo "------------------------------------------------------------------"
-if [ ! -d ~/bin ]; then
-    mkdir -p ~/bin
-    mkdir -p /etc/skel/bin
-    cp ~/startup/bin/* /etc/skel/
-    cp ~/startup/bin/* ~/bin/
-    cp ~/startup/bin/copy_prefix.py /usr/local/bin
-    rm ~/bin/copy_prefix.py
-fi
-
 # Add user to sudoers
 echo "------------------------------------------------------------------"
 echo "STATUS: Adding user to sudoers file..."

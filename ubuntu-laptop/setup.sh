@@ -9,7 +9,10 @@ chmod +x *.sh
 sudo apt update && sudo apt install -y cmake
 # Run each setup script in order
 echo "Running ubuntu-dev.sh..."
-#./ubuntu-dev.sh || { echo "ubuntu-dev.sh failed! Exiting."; exit 1; }
+./ubuntu-start.sh || { echo "ubuntu-dev.sh failed! Exiting."; exit 1; }
+
+echo "Running avswu.sh..."
+./avswu.sh || { echo "avswu.sh failed! Exiting."; exit 1; }
 
 echo "Running setup-laptop.sh..."
 ./setup-laptop.sh || { echo "setup-laptop.sh failed! Exiting."; exit 1; }
@@ -27,7 +30,7 @@ echo "Running rust-dev.sh..."
 ./rust-dev.sh || { echo "rust-dev.sh failed! Exiting."; exit 1; }
 
 echo "Running ubuntu-start.sh..."
-./ubuntu-start.sh || { echo "ubuntu-start.sh failed! Exiting."; exit 1; }
+./ubuntu-dev.sh || { echo "ubuntu-start.sh failed! Exiting."; exit 1; }
 
 echo "------------------------------------------------------------------"
 echo "STATUS: All setup scripts completed successfully!"

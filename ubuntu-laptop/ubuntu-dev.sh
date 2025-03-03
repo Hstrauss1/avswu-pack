@@ -35,8 +35,6 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 # Install development tools
 sudo apt-get install -y cmake clang-format
 
-# Install browsers
-sudo apt-get install -y firefox google-chrome-stable
 
 # Install Go
 GO_VERSION="1.22.0"
@@ -46,10 +44,3 @@ curl -L ${GO_URL} -o ${GO_FILE}.tar.gz
 sudo tar -C /usr/local -xzf ${GO_FILE}.tar.gz
 rm -f ${GO_FILE}.tar.gz
 
-# Install TightVNC server and clipboard sharing
-tightvncserver
-sudo apt-get install -y autocutsel
-
-# Set timezone
-sudo ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
-sudo echo $TZ > /etc/timezone

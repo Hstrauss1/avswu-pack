@@ -23,12 +23,6 @@ sudo apt-get install xserver-xorg
 # turn off wayland
 # reboot to start xserver
 
-
-# setup recording to work, remove old, reinstall new obs-studio
-sudo apt remove obs-studio
-sudo snap install obs-studio
-
-
 # install standard sumo for sumo-gui and netedit
 sudo apt-get -y install sumo sumo-tools sumo-doc
 
