@@ -7,15 +7,15 @@ sudo apt-get install -y build-essential gcc g++ bison flex perl \
     libwebkitgtk-1.0-0 openmpi-bin libopenmpi-dev libpcap-dev autoconf \
     automake libtool libproj-dev libgdal-dev libxerces-c-dev qtchooser \
     qtcreator qtbase5-dev qt5-qmake cmake clang-format unzip curl
-sudo apt install libgtest-dev
-sudo apt install python3-setuptools
+sudo apt install -y libgtest-dev
+sudo apt install -y python3-setuptools
 sudo apt-get install -y zip unzip tar python3 nodejs npm xfce4-terminal tree jq dos2unix iputils-ping busybox openjdk-8-jdk
 #set(Python_ADDITIONAL_VERSIONS 3.7 3.6 3.5 3.4 3.3 2.7)
-sudo apt install maven
-sudo apt install libopenscenegraph-dev
-sudo apt install build-essential cmake g++ libeigen3-dev
-sudo apt install python3-dev python3-pip
-sudo apt install gcc-12 g++-12
+sudo apt install -y maven
+sudo apt install -y libopenscenegraph-dev
+sudo apt install -y build-essential cmake g++ libeigen3-dev
+sudo apt install -y python3-dev python3-pip
+sudo apt install -y gcc-12 g++-12
 
 echo "Downloading SUMO..."
 curl -L "https://sourceforge.net/projects/sumo/files/sumo/version%201.11.0/sumo_1.11.0.orig.tar.gz/download" -o "sumo-1.11.0.tar.gz"
