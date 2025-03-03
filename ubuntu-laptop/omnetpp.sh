@@ -1,14 +1,14 @@
 VEINS_INSTALL_DIR="$HOME/src"
 
-# Ensure the directory exists
-sudo apt install bison
-sudo apt install flex
-sudo apt install cmake
-sudo apt install curl
-sudo apt install build-essential
-sudo apt install python3
-sudo apt install npm
-sudo apt install openjdk-8-jdk
+# Ensure the directory and dependancies exist
+sudo apt install -y bison
+sudo apt install -y flex
+sudo apt install -y cmake
+sudo apt install -y curl
+sudo apt install -y build-essential
+sudo apt install -y python3
+sudo apt install -y npm
+sudo apt install -y openjdk-8-jdk
 sudo apt install -y build-essential gcc g++ bison flex perl \
     tcl-dev tk-dev blt libxml2-dev zlib1g-dev default-jre doxygen graphviz \
     libwebkitgtk-1.0-0 openmpi-bin libopenmpi-dev libpcap-dev autoconf \
