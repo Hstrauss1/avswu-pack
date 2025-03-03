@@ -1,36 +1,21 @@
 #!/bin/bash
 
 echo "------------------------------------------------------------------"
-echo "STATUS: Starting full Ubuntu setup..."
+echo "STATUS: Starting full partial Ubuntu setup..."
 echo "------------------------------------------------------------------"
 
 # Ensure scripts are executable
 chmod +x *.sh
 sudo apt update && sudo apt install -y cmake
 # Run each setup script in order
-echo "Running ubuntu-dev.sh..."
-./ubuntu-start.sh || { echo "ubuntu-dev.sh failed! Exiting."; exit 1; }
+echo "Running omnetpp.sh..."
+./omnetpp.sh || { echo "omnetpp.sh failed! Exiting."; exit 1; }
 
-echo "Running avswu.sh..."
-./avswu.sh || { echo "avswu.sh failed! Exiting."; exit 1; }
+echo "Running veins.sh..."
+./veins.sh || { echo "veins.sh failed! Exiting."; exit 1; }
 
-echo "Running setup-laptop.sh..."
-./setup-laptop.sh || { echo "setup-laptop.sh failed! Exiting."; exit 1; }
-
-echo "Running install-veins.sh..."
-./install-veins.sh || { echo "install-veins.sh failed! Exiting."; exit 1; }
-
-
-echo "Running polkadot-dev.sh..."
-./polkadot-dev.sh || { echo "polkadot-dev.sh failed! Exiting."; exit 1; }
-
-echo "Running polkadot-grpc-dev.sh..."
-./polkadot-grpc-dev.sh || { echo "polkadot-grpc-dev.sh failed! Exiting."; exit 1; }
-echo "Running rust-dev.sh..."
-./rust-dev.sh || { echo "rust-dev.sh failed! Exiting."; exit 1; }
-
-echo "Running ubuntu-start.sh..."
-./ubuntu-dev.sh || { echo "ubuntu-start.sh failed! Exiting."; exit 1; }
+echo "Running sumo.sh..."
+./sumo.sh || { echo "sumo.sh failed! Exiting."; exit 1; }
 
 echo "------------------------------------------------------------------"
 echo "STATUS: All setup scripts completed successfully!"
