@@ -9,7 +9,7 @@ chmod +x *.sh
 sudo apt update && sudo apt install -y cmake
 # Run each setup script in order
 echo "Running omnetpp.sh..."
-#./omnetpp.sh 
+./omnetpp.sh 
 
 echo "Running veins.sh..."
 ./veins.sh 
