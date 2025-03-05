@@ -9,13 +9,13 @@ chmod +x *.sh
 sudo apt update && sudo apt install -y cmake
 # Run each setup script in order
 echo "Running omnetpp.sh..."
-./omnetpp.sh || { echo "omnetpp.sh failed! Exiting."; exit 1; }
+#./omnetpp.sh 
 
 echo "Running veins.sh..."
-./veins.sh || { echo "veins.sh failed! Exiting."; exit 1; }
+./veins.sh 
 
 echo "Running sumo.sh..."
-./sumo.sh || { echo "sumo.sh failed! Exiting."; exit 1; }
+./sumo.sh
 
 echo "------------------------------------------------------------------"
 echo "STATUS: All setup scripts completed successfully!"

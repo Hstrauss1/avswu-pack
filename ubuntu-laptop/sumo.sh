@@ -24,12 +24,12 @@ curl -L "https://sourceforge.net/projects/sumo/files/sumo/version%201.11.0/sumo_
 sleep 7
 tar -xzf "sumo-1.11.0.tar.gz"
 rm "sumo-1.11.0.tar.gz"
-mkdir "$HOME/src"
+mkdir "$HOME/src/sumo-1.11.0"
 mv "sumo-1.11.0" "$HOME/src"
 
-sudo apt install cmake python3 g++ libxerces-c-dev libfox-1.6-dev libgdal-dev libproj-dev libgl2ps-dev swig
+sudo apt install -y cmake python3 g++ libxerces-c-dev libfox-1.6-dev libgdal-dev libproj-dev libgl2ps-dev swig
 
-cd "$HOME/src/$SUMO_VERSION" 
+cd "$HOME/src/sumo-1.11.0" 
 sed -i 's/std=c++11/std=c++14/g' CmakeLists.txt
 cmake .
 make 
