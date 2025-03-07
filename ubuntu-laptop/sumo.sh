@@ -1,6 +1,6 @@
 export SUMO_URL="https://sourceforge.net/projects/sumo/files/sumo/version%201.11.0/sumo-1.11.0.orig.tar.gz"
 export SUMO_VERSION="sumo-1.11.0"
-sudo add-apt-repository universe
+sudo add-apt-repository -y universe
 sudo apt update
 sudo apt-get install -y build-essential gcc g++ bison flex perl \
     tcl-dev tk-dev blt libxml2-dev zlib1g-dev default-jre doxygen graphviz \
