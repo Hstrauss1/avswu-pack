@@ -1,5 +1,5 @@
 VEINS_INSTALL_DIR="$HOME/src"
-
+sudo add-apt-repository -y universe
 # Ensure the directory and dependancies exist
 sudo apt install -y bison
 sudo apt install -y flex
