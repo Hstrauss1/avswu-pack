@@ -30,6 +30,7 @@
 #
 # specific for this image
 #
+sudo add-apt-repository -y universe
 cd /root
 sudo apt update
 sudo apt install -y clang llvm

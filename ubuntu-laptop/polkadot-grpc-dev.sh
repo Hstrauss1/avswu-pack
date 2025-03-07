@@ -31,6 +31,7 @@
 
 # grpc, based on https://grpc.io/docs/languages/cpp/quickstart/#install-grpc
 # grpc prereqs
+sudo add-apt-repository -y universe
 sudo apt-get -y install build-essential autoconf libtool pkg-config
 # build gRPC and protocol buffers
 declare  GRPC_INSTALL_DIR=/usr/local

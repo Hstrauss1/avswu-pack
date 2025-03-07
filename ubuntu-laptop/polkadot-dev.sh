@@ -31,7 +31,7 @@
 
 # rust's cargo bin
 declare CARGO_BIN="/root/.cargo/bin"
-
+sudo add-apt-repository -y universe
 # polkadot prerequisites
 sudo apt-get install -y clang && \
     apt-get -y install libssl-dev && \
@@ -65,10 +65,12 @@ sudo mkdir -p /usr/local/substrate
 cd /usr/local/substrate
 
 # prepare a substrate node
-sudo git clone https://github.com/substrate-developer-hub/substrate-node-template
+sudo git config --global --add safe.directory /usr/local/substrate/polkadot-sdk-solochain-template
+sudo git config --global --add safe.directory /usr/local/substrate/substrate-front-end-template
+sudo git clone https://github.com/paritytech/polkadot-sdk-solochain-template
 
 # compile the substrate node template
-cd substrate-node-template ; git checkout latest ; ${CARGO_BIN}/cargo build --release ; cd ..
+cd polkadot-sdk-solochain-template ; git checkout latest ; ${CARGO_BIN}/cargo build --release ; cd ..
 
 # substrate front-end (ReactJS)
 sudo git clone https://github.com/substrate-developer-hub/substrate-front-end-template
