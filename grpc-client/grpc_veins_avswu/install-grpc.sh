@@ -2,9 +2,10 @@
 
 # grpc, based on https://grpc.io/docs/languages/cpp/quickstart/#install-grpc
 # grpc prereqs
-apt-get -y install build-essential autoconf libtool pkg-config
+sudo add-apt-repository -y universe
+sudo apt install -y build-essential autoconf libtool pkg-config cmake
 # build gRPC and protocol buffers
-export GRPC_INSTALL_DIR=/usr/local
+export GRPC_INSTALL_DIR=$HOME/src/GRPC
 mkdir -p ${GRPC_INSTALL_DIR}
 cd ${GRPC_INSTALL_DIR}
 git clone --recurse-submodules -b v1.58.0 --depth 1 --shallow-submodules https://github.com/grpc/grpc
