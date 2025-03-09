@@ -25,7 +25,7 @@
     "datastore-core": "^9.1.1",
     "helia": "^4.0.1",
     "libp2p": "^1.2.0",
-    "pino": "^8.16.2",
+    "pino": "^8.21.0",
     "pino-pretty": "^10.2.3",
     "veins_to_polkadot_server": "file:"
   },

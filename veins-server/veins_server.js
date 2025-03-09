@@ -7,11 +7,15 @@ import {
   getContract
 } from './polkadot_utils.js';
 
-const AVSWU_DIR = '/home/gsolomon/avswu';
+import path from 'path';
+import url from 'url';
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const PROTO_PATH = path.join(__dirname, 'veins_avswu.proto');
 
 logger.debug('loading grpc...');
 // grpc globals
-const PROTO_PATH = AVSWU_DIR + '/veins-server/veins_avswu.proto';
+
 
 import grpc from '@grpc/grpc-js';
 import protoLoader from '@grpc/proto-loader';
