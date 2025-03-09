@@ -38,6 +38,8 @@ sudo apt-get install -y clang && \
     apt-get -y install llvm && \
     apt-get -y install libudev-dev && \
     apt-get -y install protobuf-compiler
+    
+sudo apt install -y curl
 
 # polkadot and substrate config
 sudo apt-get update
@@ -65,15 +67,15 @@ sudo mkdir -p /usr/local/substrate
 cd /usr/local/substrate
 
 # prepare a substrate node
-sudo git config --global --add safe.directory /usr/local/substrate/polkadot-sdk-solochain-template
-sudo git config --global --add safe.directory /usr/local/substrate/substrate-front-end-template
-sudo git clone https://github.com/paritytech/polkadot-sdk-solochain-template
+git config --global --add safe.directory /usr/local/substrate/polkadot-sdk-solochain-template
+git config --global --add safe.directory /usr/local/substrate/substrate-front-end-template
+git clone https://github.com/paritytech/polkadot-sdk-solochain-template
 
 # compile the substrate node template
 cd polkadot-sdk-solochain-template ; git checkout latest ; ${CARGO_BIN}/cargo build --release ; cd ..
 
 # substrate front-end (ReactJS)
-sudo git clone https://github.com/substrate-developer-hub/substrate-front-end-template
+git clone https://github.com/substrate-developer-hub/substrate-front-end-template
 sudo npm install -g yarn
 cd substrate-front-end-template; git checkout latest; yarn install; cd ..
 
