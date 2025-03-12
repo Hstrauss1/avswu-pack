@@ -1,0 +1,70 @@
+# veins
+*.o
+*.swp
+src/avswu
+
+# grpc
+grpc/*/CMakeFiles
+grpc/*/cocoapods
+grpc/*/cmake_externalproject
+grpc/*/BUILD
+*.o
+*.pb.cc
+*.pb.h
+grpc/helloworld/greeter_client
+grpc/helloworld/greeter_server
+grpc/helloworld/greeter_async_client
+grpc/helloworld/greeter_async_client2
+grpc/helloworld/greeter_async_server
+grpc/helloworld/greeter_client_avswu
+grpc/helloworld/greeter_client_avswu_nodejs
+grpc/veins_polkadot_test/veins_client
+out/clang-release/src/veins_inet/*.o.d
+out/clang-release/src/veins_inet/*.h.d
+
+# gRPC ignore files
+src/veins_inet/Avswu_gRPC/BUILD
+src/veins_inet/Avswu_gRPC/CMakeFiles
+src/veins_inet/Avswu_gRPC/cocoapods
+src/veins_inet/Avswu_gRPC/*.a
+src/veins_inet/Avswu_gRPC/veins_client_push
+src/veins_inet/Avswu_gRPC/veins_client_get
+grpc/veins_polkadot_test/veins_client_get
+grpc/veins_polkadot_test/veins_client_push
+grpc/veins_polkadot_test/veins_client_push
+.gitignore
+out/clang-release/src/veins_inet/Avswu_gRPC/veins_avswu.*.o.d
+src/avswu
+out/clang-release/src/avswu-veins
+out/clang-release/src/avswu
+out/clang-release/src/avswu-veins
+
+# musig
+musig/.cache
+musig/CMakeFiles
+
+# veins
+src/avswu_dbg
+src/avswu
+
+# any libs
+*.a
+
+# ignore clangd cache
+src/.cache
+
+# ignore sim result files
+simulations/veins_avswu/results
+
+# ignore binary
+src/avswu
+
+# ignore clang compile dir
+clang-release
+out/clang-release/
+
+# ipfs cache
+simulations/veins_avswu/.libipfs-repo
+
+# simulation log files
+simulations/veins_avswu/sim-logs/
