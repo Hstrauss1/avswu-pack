@@ -1,0 +1,9 @@
+[user]
+	name = Gabriel Solomon
+	email = gjeromesolomon@gmail.com
+[push]
+	default = simple
+[core]
+	editor = '/usr/bin/vi'
+[safe]
+	directory = /avswu-veins
