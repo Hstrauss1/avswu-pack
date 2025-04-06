@@ -1,0 +1,142 @@
+file 20513 1729206196                                           
+version 2
+run Default-0-20241014-20:00:09-9725
+attr configname Default
+attr datetime 20241014-20:00:09
+attr experiment Default
+attr inifile omnetpp.ini
+attr iterationvars "$size=2, $k=6, $m=3"
+attr iterationvarsf size=2,k=6,m=3-
+attr measurement "$size=2, $k=6, $m=3"
+attr network AvswuScenario
+attr processid 9725
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+itervar k 6
+itervar m 3
+itervar size 2
+param **.softwareUpdateSizeMB 2
+param **.erasureCodeK 6
+param **.erasureCodeM 3
+param *.man[*].appl.softwareUpdateSizeMB softwareUpdateSizeMB
+param *.rsu[*].appl.softwareUpdateSizeMB softwareUpdateSizeMB
+param *.delivery[*].appl.softwareUpdateSizeMB softwareUpdateSizeMB
+param *.node[*].appl.softwareUpdateSizeMB softwareUpdateSizeMB
+param *.man[*].appl.erasureCodeK erasureCodeK
+param *.man[*].appl.erasureCodeM erasureCodeM
+param *.playgroundSizeX 4000m
+param *.playgroundSizeY 4000m
+param *.playgroundSizeZ 50m
+param *.annotations.draw true
+param *.obstacles.obstacles "xmldoc(\"config.xml\", \"//AnalogueModel[@type='SimpleObstacleShadowing']/obstacles\")"
+param *.manager.updateInterval 1s
+param *.manager.host "\"localhost\""
+param *.manager.port 9999
+param *.manager.autoShutdown true
+param *.manager.launchConfig "xmldoc(\"erlangen.launchd.xml\")"
+param *.manager.trafficLightModuleType "\"org.car2x.veins.nodes.TrafficLight\""
+param *.manager.moduleType "\"deliveryType=org.car2x.veins.nodes.Car *=org.car2x.veins.nodes.Car\""
+param *.manager.moduleName "\"deliveryType=delivery *=node\""
+param *.tls[*].mobility.x 0
+param *.tls[*].mobility.y 0
+param *.tls[*].mobility.z 3
+param *.tls[*].applType "\"org.car2x.veins.modules.application.traci.TraCIDemoTrafficLightApp\""
+param *.tls[*].logicType "\"org.car2x.veins.modules.world.traci.trafficLight.logics.TraCITrafficLightSimpleLogic\""
+param *.man[0].mobility.x 3000
+param *.man[0].mobility.y 1200
+param *.man[0].mobility.z 3
+param *.man[*].applType "\"avswu.veins_avswu.AvswuManufacturer11p\""
+param *.man[*].appl.headerLength "80 bit"
+param *.man[*].appl.sendBeacons false
+param *.man[*].appl.dataOnSch false
+param *.man[*].appl.beaconInterval 1s
+param *.man[*].appl.beaconUserPriority 7
+param *.man[*].appl.dataUserPriority 5
+param *.man[*].nic.phy80211p.antennaOffsetZ "0 m"
+param *.rsu[0].mobility.x 1700
+param *.rsu[0].mobility.y 1800
+param *.rsu[0].mobility.z 3
+param *.rsu[1].mobility.x 700
+param *.rsu[1].mobility.y 1000
+param *.rsu[1].mobility.z 3
+param *.rsu[2].mobility.x 1800
+param *.rsu[2].mobility.y 800
+param *.rsu[2].mobility.z 3
+param *.rsu[3].mobility.x 500
+param *.rsu[3].mobility.y 600
+param *.rsu[3].mobility.z 3
+param *.rsu[*].applType "\"avswu.veins_avswu.AvswuRSU11p\""
+param *.rsu[*].appl.headerLength "80 bit"
+param *.rsu[*].appl.sendBeacons false
+param *.rsu[*].appl.dataOnSch false
+param *.rsu[*].appl.beaconInterval 1s
+param *.rsu[*].appl.beaconUserPriority 7
+param *.rsu[*].appl.dataUserPriority 5
+param *.rsu[*].nic.phy80211p.antennaOffsetZ "0 m"
+param *.connectionManager.sendDirect true
+param *.connectionManager.maxInterfDist 2600m
+param *.connectionManager.drawMaxIntfDist false
+param *.**.nic.mac1609_4.useServiceChannel false
+param *.**.nic.mac1609_4.txPower 20mW
+param *.**.nic.mac1609_4.bitrate 6Mbps
+param *.**.nic.phy80211p.minPowerLevel -110dBm
+param *.**.nic.phy80211p.useNoiseFloor true
+param *.**.nic.phy80211p.noiseFloor -98dBm
+param *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.usePropagationDelay true
+param *.**.nic.phy80211p.antenna "xmldoc(\"antenna.xml\", \"/root/Antenna[@id='monopole']\")"
+param *.node[*].nic.phy80211p.antennaOffsetY "0 m"
+param *.node[*].nic.phy80211p.antennaOffsetZ "1.895 m"
+param *.delivery[*].applType "\"avswu.veins_avswu.AvswuDeliveryAV11p\""
+param *.delivery[*].appl.headerLength "80 bit"
+param *.delivery[*].appl.sendBeacons false
+param *.delivery[*].appl.dataOnSch false
+param *.delivery[*].appl.beaconInterval 1s
+param *.delivery[*].veinsmobility.x 0
+param *.delivery[*].veinsmobility.y 0
+param *.delivery[*].veinsmobility.z 0
+param *.delivery[*].veinsmobility.setHostSpeed false
+param *.node[*].applType "\"avswu.veins_avswu.AvswuClientAV11p\""
+param *.node[*].appl.headerLength "80 bit"
+param *.node[*].appl.sendBeacons false
+param *.node[*].appl.dataOnSch false
+param *.node[*].appl.beaconInterval 1s
+param *.node[*].veinsmobility.x 0
+param *.node[*].veinsmobility.y 0
+param *.node[*].veinsmobility.z 0
+param *.node[*].veinsmobility.setHostSpeed false
+
+vector 0 AvswuScenario.delivery[0].veinsmobility posx ETV
+0	5446 1137 7 709 5 51 47 125.61919732683 440.48330612725 14132.472386254 4675149.6540988
+vector 1 AvswuScenario.delivery[0].veinsmobility posy ETV
+1	6583 1138 7 709 5 51 47 1225.4822340654 1385.1793464934 61587.369531377 80807675.271322
+vector 2 AvswuScenario.delivery[0].veinsmobility speed ETV
+2	7721 1113 8 709 6 51 46 4.0239826316459 13.995611887625 550.22939665794 6915.5254043329
+vector 3 AvswuScenario.delivery[0].veinsmobility acceleration ETV
+3	8834 1130 9 709 7 51 45 -4.4627199294861 2.1727836760785 9.849570958821 126.87737014215
+vector 4 AvswuScenario.delivery[0].veinsmobility co2emission ETV
+4	9964 1014 9 709 7 51 45 0.973 8.3476592724775 157.94255528473 824.02529835345
+vector 5 AvswuScenario.delivery[1].veinsmobility posx ETV
+5	10978 1049 11 709 9 51 43 1296.3384163569 1563.1067121221 61562.417041028 88552100.788067
+vector 6 AvswuScenario.delivery[1].veinsmobility posy ETV
+6	12027 1046 11 709 9 51 43 1545.5664177071 1713.5248246519 69293.866690058 111757593.85355
+vector 7 AvswuScenario.delivery[1].veinsmobility speed ETV
+7	13073 1022 12 709 10 51 42 4.0186940901658 13.998846602554 534.25522357507 7055.5894519865
+vector 8 AvswuScenario.delivery[1].veinsmobility acceleration ETV
+8	14095 1073 13 709 11 51 41 -4.4698684945357 2.1724535532296 9.9695935451703 53.426338096116
+vector 9 AvswuScenario.delivery[1].veinsmobility co2emission ETV
+9	15168 972 13 709 11 51 41 0.973 8.6749653013229 119.92878236327 515.64602880054
+vector 10 AvswuScenario.node[2].veinsmobility posx ETV
+10	16140 891 19 709 17 51 35 465.03705286572 761.19849988329 19901.960813775 11632589.489527
+vector 11 AvswuScenario.node[2].veinsmobility posy ETV
+11	17031 895 19 709 17 51 35 1122.3757942747 1323.3117558639 43449.712239054 54078432.225953
+vector 12 AvswuScenario.node[2].veinsmobility speed ETV
+12	17926 863 20 709 18 51 34 4.1008792609036 13.995355136881 423.04061785598 5511.0286603327
+vector 13 AvswuScenario.node[2].veinsmobility acceleration ETV
+13	18789 899 21 709 19 51 33 -4.4702336495608 2.0859464661125 9.8870813305941 55.752250778798
+vector 14 AvswuScenario.node[2].veinsmobility co2emission ETV
+14	19688 825 21 709 19 51 33 0.973 8.3547130331184 104.77233724239 483.31243185257

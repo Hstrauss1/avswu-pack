@@ -1,0 +1,2 @@
+# use the newer message compiler (msg6)
+MSGC:=$(MSGC) --msg6

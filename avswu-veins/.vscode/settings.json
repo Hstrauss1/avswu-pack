@@ -1,0 +1,25 @@
+{
+    "files.eol": "\n",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "eslint.validate": ["javascript"],
+    "javascript.suggest.autoImports": false,
+    "cmake.configureOnOpen": false,
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "clangd.arguments": [
+        "--compile-commands-dir=/home/veins/avswu-veins/src",
+        "--completion-style=detailed",
+        "--header-insertion=never"
+    ],
+    // color for repo
+    "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#ea95ff",
+        "titleBar.activeForeground": "#000000"
+    },
+    "makefile.configureOnOpen": false
+}

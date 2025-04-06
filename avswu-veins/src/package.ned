@@ -1,0 +1,3 @@
+package avswu;
+
+@license(LGPL);
