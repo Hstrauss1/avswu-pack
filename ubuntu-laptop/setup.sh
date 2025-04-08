@@ -18,6 +18,7 @@ echo "Running sumo.sh..."
 ./sumo.sh
 
 pip install compiledb
+sudo apt install nlohmann-json3-dev
 
 echo "------------------------------------------------------------------"
 echo "STATUS: All setup scripts completed successfully!"
