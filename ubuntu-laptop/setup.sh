@@ -23,8 +23,9 @@ sudo apt install libgmp-dev -y
 sudo apt install libspdlog-dev -y
 
 cd ~/avswu/veins-client/veins_avswu
+cp ~/avswu/veins-server/veins_avswu.proto .
 protoc \
-  -I ~/avswu/grpc-client/grpc_veins_avswu \
+  -I ~/avswu/veins-server \
   --cpp_out=. \
   --grpc_out=. \
   --plugin=protoc-gen-grpc=$(which grpc_cpp_plugin) \
