@@ -19,6 +19,7 @@ echo "Running sumo.sh..."
 
 pip install compiledb
 sudo apt install nlohmann-json3-dev
+sudo apt install libgmp-dev -y
 
 echo "------------------------------------------------------------------"
 echo "STATUS: All setup scripts completed successfully!"
