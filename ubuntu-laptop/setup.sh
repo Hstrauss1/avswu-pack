@@ -17,6 +17,8 @@ echo "Running veins.sh..."
 echo "Running sumo.sh..."
 ./sumo.sh
 
+pip install compiledb
+
 echo "------------------------------------------------------------------"
 echo "STATUS: All setup scripts completed successfully!"
 echo "------------------------------------------------------------------"
