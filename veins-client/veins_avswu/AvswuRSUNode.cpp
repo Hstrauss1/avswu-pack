@@ -29,7 +29,7 @@ const bool AvswuRSUNode::ipfs_read_packet(AvswuPacketShard &packet,
   try {
     // read from ipfs
     const string result =
-        IpfsGet((char *)cid_hash.c_str(), (char *)tmp_file.c_str());
+        Get((char *)cid_hash.c_str(), (char *)tmp_file.c_str(), 0);
     json j_result = json::parse(result);
     if (j_result["Status"] != "ok") {
       spdlog::error("unable to read packet json from ipfs, result={}", result);

@@ -171,7 +171,7 @@ const bool start_ipfs_node() {
   spdlog::info("starting IPFS node");
   string ipfs_result;
   try {
-    ipfs_result = IPFSStartNode((char *)"", 0);
+    ipfs_result = Start((char *)"", 0);
   } catch (const std::runtime_error &e) {
     spdlog::error("unable to start ipfs");
     return false;
@@ -197,7 +197,7 @@ const bool stop_ipfs_node() {
   spdlog::info("stopping IPFS node");
   string ipfs_result;
   try {
-    ipfs_result = IPFSStopNode();
+    ipfs_result = Stop();
   } catch (const std::runtime_error &e) {
     spdlog::error("unable to stop ipfs");
     return false;

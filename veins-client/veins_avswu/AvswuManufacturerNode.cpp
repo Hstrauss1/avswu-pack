@@ -188,7 +188,8 @@ AvswuManufacturerNode::ipfs_write_packet(string &server_result,
   // write tmp_file to ipfs
   string ipfs_add_result;
   try {
-    ipfs_add_result = IpfsAdd((char *)tmp_file.c_str());
+    char* result_raw = Add((char *)tmp_file.c_str());
+	std::string ipfs_add_result(result_raw);
   } catch (const std::runtime_error &err) {
     spdlog::error("unable to add packet json to ipfs, err={}", tmp_file,
                   err.what());
