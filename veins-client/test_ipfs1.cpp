@@ -10,7 +10,17 @@
 using json = nlohmann::json;
 
 using namespace std;
+char* IpfsAdd(char* path) {
+    return Add(path);
+}
 
+char* IpfsGet(char* fullPath, char* destination) {
+    return Get(fullPath, destination, 0);  // 0 = no pin
+}
+
+char* GetPeerID() {
+    return PeerID();
+}
 int main() {
   bool is_success = avswu_utils::start_ipfs_node();
   if (!is_success) {
@@ -22,7 +32,7 @@ int main() {
 
   spdlog::info("adding file to IPFS");
   const string result =
-      IpfsAdd((char *)"/home/gsolomon/avswu/veins-client/input/kb/"
+      IpfsAdd((char *)"/home/huds/avswu/veins-client/input/kb/"
                       "test_data_0003.data");
   spdlog::info("result={}", result);
 
@@ -33,7 +43,7 @@ int main() {
 
   // remove file on disk, before downloading
   const string output_file =
-      "/home/gsolomon/avswu/veins-client/output/ipfs-download.data";
+      "/home/huds/avswu/veins-client/output/ipfs-download.data";
   std::filesystem::remove(output_file);
 
   spdlog::info("downloading file from IPFS");

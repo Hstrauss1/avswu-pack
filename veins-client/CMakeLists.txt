@@ -51,10 +51,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall")
 # set project basedir
 if (${_instant_veins} EQUAL 1)
   # set project basedir
-  set(_basedir "/home/veins/avswu")
+  set(_basedir "/home/huds/avswu")
 else()
   # set project basedir
-  set(_basedir "/home/gsolomon/avswu")
+  set(_basedir "/home/huds/avswu")
 endif()
 
 # project directories
@@ -220,13 +220,13 @@ target_include_directories(${_target} PUBLIC ${NON_CON_MUSIG_CPP_DIR})
 target_include_directories(${_target} PUBLIC /usr/local/Jerasure/include)
 
 # jerasure
-target_link_libraries(${_target} PRIVATE /usr/local/gf-complete/src/.libs/libgf_complete.a)
-target_link_libraries(${_target} PRIVATE /usr/local/Jerasure/src/libtiming.a)
+target_link_libraries(${_target} PRIVATE /usr/local/lib/libgf_complete.a)
+target_link_libraries(${_target} PRIVATE /home/huds/src/Jerasure/src/libtiming.a)
 target_link_libraries(${_target} PRIVATE /usr/local/lib/libJerasure.so)
 
 # libipfs library
-target_include_directories(${_target} PUBLIC /usr/local/libipfs/bin)
-target_link_libraries(${_target} PRIVATE /usr/local/libipfs/bin/libipfs-linux.a)
+target_include_directories(${_target} PUBLIC /home/huds/src/IPFS/libipfs/bin)
+target_link_libraries(${_target} PRIVATE /home/huds/src/IPFS/libipfs/bin/libipfs-linux.a)
 
 target_link_libraries(${_target} PRIVATE
   veins_avswu_grpc_proto
@@ -274,7 +274,7 @@ foreach(_target ${_all_target_list})
   target_include_directories(${_target} PUBLIC /usr/local/include)
   target_include_directories(${_target} PUBLIC ${AVSWU_CPP_DIR})
   target_include_directories(${_target} PUBLIC ${NON_CON_MUSIG_CPP_DIR})
-  target_include_directories(${_target} PUBLIC /usr/local/Jerasure/include)
+  target_include_directories(${_target} PUBLIC /usr/local/include/jerasure)
 
   # libraries
   target_link_libraries(${_target} PRIVATE nlohmann_json::nlohmann_json)
@@ -292,16 +292,17 @@ foreach(_target ${_all_target_list})
   target_link_libraries(${_target} PRIVATE veins_avswu)
 
   # jerasure and gf-complete
-  target_link_libraries(${_target} PRIVATE /usr/local/gf-complete/src/.libs/libgf_complete.a)
-  target_link_libraries(${_target} PRIVATE /usr/local/Jerasure/src/libtiming.a)
+  target_link_libraries(${_target} PRIVATE /usr/local/lib/libgf_complete.a)
+  target_link_libraries(${_target} PRIVATE /home/huds/src/Jerasure/src/libtiming.a)
   target_link_libraries(${_target} PRIVATE /usr/local/lib/libJerasure.so)
 
   # ssl 3.3.0 dynamic libraries
   target_link_libraries(${_target} PRIVATE /usr/local/openssl-3.3.0/libcrypto.so.3)
 
   # libipfs library
-  target_include_directories(${_target} PUBLIC /usr/local/libipfs/bin)
-  target_link_libraries(${_target} PRIVATE /usr/local/libipfs/bin/libipfs-linux.a)
+  
+  target_include_directories(${_target} PUBLIC /home/huds/src/IPFS/libipfs/bin)
+  target_link_libraries(${_target} PRIVATE /home/huds/src/IPFS/libipfs/bin/libipfs-linux.a)
 
   # link directories
   target_link_directories(${_target} PUBLIC /usr/local/lib)
