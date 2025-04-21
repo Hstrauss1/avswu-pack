@@ -2,7 +2,7 @@
 # master makefile for building veins avswu
 #
 
-VEINS_USER=gsolomon
+VEINS_USER=huds
 
 # compile flags
 AVSWU_CFLAGS = -KCFLAGS="-fPIC -O2"
@@ -10,7 +10,9 @@ AVSWU_CFLAGS = -KCFLAGS="-fPIC -O2"
 INCLUDE_PATH += \
     -I/home/${VEINS_USER}/avswu/veins-client/veins_avswu \
     -I/usr/local/Jerasure/include \
-    -I/usr/local/libipfs/bin
+    -I/usr/local/libipfs/bin \
+    -I/home/huds/src/veins-veins-5.2/src \
+    -I/usr/local/include
 
 # -I/usr/local/openssl-3.3.0/include
 
@@ -38,11 +40,12 @@ AVSWU_LIBS = \
     /usr/local/lib/libcares.a \
     /usr/local/lib/libz.a \
     /usr/local/lib/libaddress_sorting.a \
-    /usr/local/lib/libgmp.a \
-    /usr/local/gf-complete/src/.libs/libgf_complete.a \
-    /usr/local/Jerasure/src/libtiming.a \
+    /home/huds/src/gf-complete/src/.libs/libgf_complete.a \
+	/home/huds/src/Jerasure/src/libtiming.a \
     /usr/local/lib/libJerasure.so \
-    /usr/local/libipfs/bin/libipfs-linux.a
+    /home/huds/src/IPFS/libipfs/bin/libipfs-linux.a \
+    /usr/local/lib/libgmp.a
+    
 
 EXTRA_OBJS = \
     ${AVSWU_LIBS} \
@@ -70,6 +73,8 @@ EXTRA_OBJS = \
     -ldl \
     -lm \
     -lrt \
+    -L/usr/local/lib \
+    -lfmt \
     -pthread \
     /usr/local/lib/libabsl_log_internal_check_op.a \
     /usr/local/lib/libabsl_leak_check.a \
@@ -144,7 +149,7 @@ EXTRA_OBJS = \
 
 VEINS_ARGS= \
     -KCXX=/usr/bin/clang++-17 \
-	-KINET_PROJ=/home/${VEINS_USER}/src/inet4 \
+	-KINET_PROJ=/home/${VEINS_USER}/src/omnetpp-5.7/samples/inet4 \
 	-KVEINS_PROJ=/home/${VEINS_USER}/src/veins \
 	-DINET_IMPORT -DVEINS_IMPORT \
     ${AVSWU_DEFINES} \
@@ -154,9 +159,10 @@ VEINS_ARGS= \
 	-I$$\(VEINS_PROJ\)/src \
 	-I. -L$$\(INET_PROJ\)/src \
 	-L$$\(VEINS_PROJ\)/src \
-	-lINET$$\(D\) \
-	-lveins$$\(D\)
+	/home/huds/src/omnetpp-5.7/samples/inet4/out/clang-release/src/libINET.so \
+	/home/huds/src/veins-veins-5.2/out/clang-release/src/libveins.so
 
+	
 all: checkmakefiles makefiles
 	cd src && $(MAKE)
 
