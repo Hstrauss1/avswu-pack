@@ -1,0 +1,10 @@
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+	<vType id="clientType" accel="2.6" decel="4.5" sigma="0.5" length="2.5" minGap="2.5" maxSpeed="48.3" color="0,0,1" />
+	<vType id="deliveryType" accel="2.6" decel="4.5" sigma="0.5" length="2.5" minGap="2.5" maxSpeed="48.3" color="0,1,0" />
+	<vehicle id="0" depart="0.00" type="deliveryType">
+		<route edges="4006688#1 -4006688#1 -4006688#0 -31401017#0 -29900567 -23605600#2 4006675" />
+	</vehicle>
+	<vehicle id="1" depart="0.50" type="clientType">
+		<route edges="-23605595 -8403007 -29900564#1 -8402998#2 -8402998#1 -8402997 32270595 33174302#0 33174302#1 31353573#0 31353573#1 -31353573#1" />
+	</vehicle>
+</routes>
